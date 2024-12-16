@@ -215,7 +215,8 @@
 
       /* Animation d'éclipse */
       @keyframes eclipse {
-        0%, 100% {
+        0%,
+        100% {
           transform: scale(1);
           opacity: 0.3;
         }
@@ -227,7 +228,8 @@
 
       /* Animation de pulse modifiée */
       @keyframes custom-pulse {
-        0%, 100% {
+        0%,
+        100% {
           transform: scale(1);
           opacity: 0.5;
         }
@@ -247,17 +249,17 @@
 
       /* Effet de brillance amélioré */
       .group:hover::after {
-        content: '';
+        content: "";
         position: absolute;
         inset: -4px;
         border-radius: 9999px;
-        background: linear-gradient(45deg, 
-          rgba(59, 130, 246, 0.5), 
-          rgba(139, 92, 246, 0.5), 
+        background: linear-gradient(
+          45deg,
+          rgba(59, 130, 246, 0.5),
+          rgba(139, 92, 246, 0.5),
           rgba(59, 130, 246, 0.5)
         );
-        -webkit-mask: 
-          linear-gradient(#fff 0 0) content-box, 
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
           linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
@@ -268,6 +270,171 @@
 
       .group:hover::after {
         opacity: 1;
+      }
+
+      /* Ombre subtile pour les cartes */
+      .bg-white\/10 {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Effet de bordure lumineux */
+      .border-blue-500\/20 {
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+      }
+
+      /* Style pour les badges de technologie */
+      .bg-gray-700 {
+        background-color: rgba(55, 65, 81, 0.8);
+        backdrop-filter: blur(4px);
+      }
+
+      .group:hover .absolute {
+        transition-delay: 100ms;
+      }
+
+      .backdrop-blur-sm {
+        backdrop-filter: blur(4px);
+      }
+
+      /* Fond animé d'étoiles */
+      .stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+      }
+
+      .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: #fff;
+        border-radius: 50%;
+        animation: twinkle 2s infinite;
+      }
+
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      /* Animation de développement */
+      .dev-animation-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .dev-animation-container .code-line {
+        position: absolute;
+        white-space: nowrap;
+        font-family: monospace;
+        color: #00ff00;
+        opacity: 0.5;
+        animation: scroll 10s linear infinite;
+      }
+
+      .dev-animation-container .dev-icon {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-size: cover;
+        opacity: 0.5;
+        animation: float 5s ease-in-out infinite;
+      }
+
+      .dev-animation-container .particle {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: #00ff00;
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: rise 5s linear infinite;
+      }
+
+      .dev-animation-container .glow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(0, 255, 0, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .dev-animation-container:hover .glow {
+        opacity: 1;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateY(100%);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0);
+        }
+        50% {
+          transform: translateY(-20px) translateX(10px);
+        }
+      }
+
+      @keyframes rise {
+        0%,
+        100% {
+          transform: translateY(100%);
+        }
+        50% {
+          transform: translateY(-100%);
+        }
+      }
+
+      /* Styles pour l'animation des cartes */
+      .project-card {
+        transition: all 0.4s ease-in-out;
+      }
+
+      /* Style pour le bouton actif */
+      .filter-btn.active {
+        background-color: rgb(59, 130, 246);
+        font-weight: 500;
+      }
+
+      /* Animation d'apparition des cartes */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .project-card {
+        animation: fadeInUp 0.5s ease-out;
       }
     </style>
   </head>
@@ -286,17 +453,17 @@
           <div class="flex items-center space-x-3">
             <a
               href="#profil"
-              class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
+              class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300 uppercase font-bold"
               >Profil</a
             >
             <a
               href="#projets"
-              class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
+              class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300 uppercase font-bold"
               >Projets</a
             >
             <a
               href="#experience"
-              class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300"
+              class="py-4 px-2 text-gray-500 hover:text-blue-500 transition duration-300 uppercase font-bold"
               >Expérience</a
             >
           </div>
@@ -449,35 +616,57 @@
                 <!-- Cercles d'éclipse -->
                 <div class="absolute inset-0 z-20">
                   <!-- Cercle extérieur rotatif -->
-                  <div class="absolute inset-[-15px] border-4 border-dashed border-blue-400/30 rounded-full animate-spin-slow"></div>
-                  
+                  <div
+                    class="absolute inset-[-15px] border-4 border-dashed border-blue-400/30 rounded-full animate-spin-slow"
+                  ></div>
+
                   <!-- Cercles orbitaux -->
                   <div class="absolute inset-[-30px] animate-spin-reverse">
-                    <div class="absolute top-1/2 left-[-8px] w-4 h-4 bg-blue-500 rounded-full blur-[2px] shadow-lg shadow-blue-500/50"></div>
-                    <div class="absolute top-1/2 right-[-8px] w-4 h-4 bg-purple-500 rounded-full blur-[2px] shadow-lg shadow-purple-500/50"></div>
+                    <div
+                      class="absolute top-1/2 left-[-8px] w-4 h-4 bg-blue-500 rounded-full blur-[2px] shadow-lg shadow-blue-500/50"
+                    ></div>
+                    <div
+                      class="absolute top-1/2 right-[-8px] w-4 h-4 bg-purple-500 rounded-full blur-[2px] shadow-lg shadow-purple-500/50"
+                    ></div>
                   </div>
 
                   <!-- Anneaux lumineux -->
-                  <div class="absolute inset-[-20px] border-2 border-blue-400/20 rounded-full animate-pulse"></div>
-                  <div class="absolute inset-[-10px] border-2 border-purple-400/20 rounded-full animate-pulse delay-150"></div>
+                  <div
+                    class="absolute inset-[-20px] border-2 border-blue-400/20 rounded-full animate-pulse"
+                  ></div>
+                  <div
+                    class="absolute inset-[-10px] border-2 border-purple-400/20 rounded-full animate-pulse delay-150"
+                  ></div>
                 </div>
 
                 <!-- Cercle rotatif avec gradient -->
-                <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-spin-reverse blur opacity-30"></div>
-                
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-spin-reverse blur opacity-30"
+                ></div>
+
                 <!-- Container de l'image -->
-                <div class="relative z-10 w-[300px] h-[300px] rounded-full overflow-hidden border-4 border-white/20 shadow-lg group-hover:border-blue-500/50 transition-colors duration-500">
+                <div
+                  class="relative z-10 w-[300px] h-[300px] rounded-full overflow-hidden border-4 border-white/20 shadow-lg group-hover:border-blue-500/50 transition-colors duration-500"
+                >
                   <!-- Overlay d'éclipse -->
-                  <div class="absolute inset-0 bg-gradient-to-tr from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  <img src="moi.jpg" 
-                       alt="Developer Illustration" 
-                       class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"/>
+                  <div
+                    class="absolute inset-0 bg-gradient-to-tr from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  ></div>
+
+                  <img
+                    src="moi.jpg"
+                    alt="Developer Illustration"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"
+                  />
                 </div>
 
                 <!-- Effet d'éclipse au survol -->
-                <div class="absolute inset-0 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div class="absolute inset-[-2px] bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-sm animate-pulse"></div>
+                <div
+                  class="absolute inset-0 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                >
+                  <div
+                    class="absolute inset-[-2px] bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-sm animate-pulse"
+                  ></div>
                 </div>
 
                 <!-- Particules flottantes -->
@@ -501,7 +690,7 @@
     <!-- Section Compétences -->
     <section class="py-12 bg-white">
       <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-3">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-3 uppercase">
           Compétences
         </h2>
         <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-10"></div>
@@ -549,12 +738,6 @@
                 alt="c"
                 class="w-10 h-10 hover:scale-110 transition-transform"
                 title="C"
-              />
-              <img
-                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg"
-                alt="csharp"
-                class="w-10 h-10 hover:scale-110 transition-transform"
-                title="C#"
               />
             </div>
           </div>
@@ -726,19 +909,6 @@
                 class="flex flex-col items-center hover:transform hover:-translate-y-1 transition-all duration-300"
               >
                 <img
-                  src="https://www.vectorlogo.zone/logos/java/java-icon.svg"
-                  alt="JEE"
-                  class="w-12 h-12 hover:scale-110 transition-transform"
-                  title="Java EE"
-                />
-                <span class="text-sm text-gray-600 mt-2 text-center font-bold"
-                  >Java EE</span
-                >
-              </div>
-              <div
-                class="flex flex-col items-center hover:transform hover:-translate-y-1 transition-all duration-300"
-              >
-                <img
                   src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg"
                   alt="sql-server"
                   class="w-12 h-12 hover:scale-110 transition-transform"
@@ -818,89 +988,726 @@
     </section>
 
     <!-- Section Projets -->
-    <section
-      id="projets"
-      class="py-16 bg-gradient-to-b from-gray-50 to-gray-100"
-    >
+    <section id="projets" class="py-16 bg-[#1E293B]">
       <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+        <h2 class="text-3xl font-bold text-center text-white mb-12 uppercase">
           Mes Projets
           <div class="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Projet 1 -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-2xl"
+        <!-- Filtres -->
+        <div class="mb-8 flex justify-center gap-4">
+          <button
+            class="px-4 py-2 rounded-lg bg-white/10 text-white hover:bg-blue-500 transition-all duration-300 filter-btn active"
+            data-filter="all"
           >
-            <div class="relative h-56 overflow-hidden">
+            Tous
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg bg-white/10 text-white hover:bg-blue-500 transition-all duration-300 filter-btn"
+            data-filter="fullstack"
+          >
+            Full Stack
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg bg-white/10 text-white hover:bg-blue-500 transition-all duration-300 filter-btn"
+            data-filter="backend"
+          >
+            Backend
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg bg-white/10 text-white hover:bg-blue-500 transition-all duration-300 filter-btn"
+            data-filter="frontend"
+          >
+            Frontend
+          </button>
+        </div>
+
+        <!-- Grille des projets -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          id="projects-grid"
+        >
+           <!-- Projet 2 : Gestion des Ressources -->
+           <div class="project-card bg-white/20 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-900" data-category="backend">
+            <div class="relative">
+              <div
+                class="absolute inset-0 border-4 border-blue-500/20 rounded-t-xl"
+              ></div>
+              <img
+                src="citron.png"
+                alt="gestion pour une ferme de citrons"
+                class="w-full h-56 object-cover"
+              />
+              <div
+              class="absolute top-4 right-4 bg-blue-500/90 px-3 py-1 rounded-full flex items-center gap-2 "
+            >
+            <div>
+         
+              <svg
+                class="w-3 h-3 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </div>
+            <a
+            href="https://github.com/anwar-bouchehboun/farm_management_Citronix_Youcode"
+            target="_blank"
+          >
+          <span class="text-white text-sm font-medium">Backend</span>
+        </a>
+             
+            </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-3 uppercase">
+                Gestion ferme de citronx  APIs REST.
+              </h3>
+              <p class="text-gray-300 mb-4">
+                 Application de gestion pour une ferme de citrons, permettant aux fermiers de suivre la production, la récolte, et la vente de leurs produits.
+              </p>
+
+              <!-- Technologies -->
+              <div class="mb-6">
+                <p class="text-sm font-medium text-gray-400 mb-2">
+                  Technologies utilisées:
+                </p>
+                <div class="flex gap-6 items-center">
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"
+                        alt="Java"
+                        class="w-8 h-8"
+                        title="Java"
+                      />
+                    </div>
+                  </div>
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg"
+                        alt="Spring"
+                        class="w-8 h-8"
+                        title="Spring"
+                      />
+                    </div>
+                  </div>
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
+                        alt="PostgreSQL"
+                        class="w-8 h-8"
+                        title="PostgreSQL"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- Projet 1 : CLUB PHOENIX -->
+          <div class="project-card bg-white/20 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-900" data-category="fullstack">
+            <div class="relative">
+              <div
+                class="absolute inset-0 border-4 border-blue-500/20 rounded-t-xl"
+              ></div>
               <img
                 src="club.png"
                 alt="CLUB PHOENIX"
-                class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                class="w-full h-56 object-cover"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"
+                class="absolute top-4 right-4 bg-blue-500/90 px-3 py-1 rounded-full flex items-center gap-2 "
               >
-                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <p class="font-medium mb-2">Technologies utilisées:</p>
-                  <div class="flex gap-3">
-                    <img
-                      src="laravel-logo.png"
-                      alt="Laravel"
-                      class="w-8 h-8 bg-white rounded-full p-1"
-                      title="Laravel"
-                    />
-                    <img
-                      src="Livewire.png"
-                      alt="Livewire"
-                      class="w-8 h-8 bg-white rounded-full p-1"
-                      title="Livewire"
-                    />
-                    <img
-                      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
-                      alt="MySQL"
-                      class="w-8 h-8 bg-white rounded-full p-1"
-                      title="MySQL"
-                    />
+              <div>
+           
+                <svg
+                  class="w-3 h-3 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </div>
+              <a
+              href="https://github.com/anwar-bouchehboun/gestion_Club_FilRouge"
+              target="_blank"
+            >
+                <span class="text-white text-sm font-medium">Full Stack</span>
+              </a>
+               
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-3 uppercase">CLUB PHOENIX</h3>
+              <p class="text-gray-300 mb-4">
+                Application de gestion de club sportif permettant la gestion des
+                membres, des activités et des événements.
+              </p>
+
+              <!-- Technologies -->
+              <div class="mb-6">
+                <p class="text-sm font-medium text-gray-300 mb-2">
+                  Technologies utilisées:
+                </p>
+                <div class="flex flex-wrap gap-4 items-center">
+                  <!-- HTML -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
+                        alt="HTML5"
+                        class="w-7 h-7"
+                        title="HTML5"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- CSS -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
+                        alt="CSS3"
+                        class="w-7 h-7"
+                        title="CSS3"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- JavaScript -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+                        alt="JavaScript"
+                        class="w-7 h-7"
+                        title="JavaScript"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Laravel -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="laravel-logo.png"
+                        alt="Laravel"
+                        class="w-7 h-7"
+                        title="Laravel"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Livewire -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="Livewire.png"
+                        alt="Livewire"
+                        class="w-7 h-7"
+                        title="Livewire"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- MySQL -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
+                        alt="MySQL"
+                        class="w-7 h-7"
+                        title="MySQL"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="p-6 bg-white">
-              <h3 class="font-bold text-xl mb-2 text-gray-800">CLUB PHOENIX</h3>
-              <p class="text-gray-600 mb-4">
-                Application de gestion de club sportif permettant la gestion des
-                membres, des activités et des événements.
+          </div>
+          <div class="project-card bg-white/20 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-900" data-category="fullstack">
+            <div class="relative">
+              <div
+                class="absolute inset-0 border-4 border-blue-500/20 rounded-t-xl"
+              ></div>
+              <img
+                src="Discover.png"
+                alt="DISCOVER WORLD"
+                class="w-full h-56 object-cover"
+              />
+              <div
+                class="absolute top-4 right-4 bg-blue-500/90 px-3 py-1 rounded-full flex items-center gap-2 "
+              >
+              <div>
+           
+                <svg
+                  class="w-3 h-3 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </div>
+              <a
+              href="https://github.com/anwar-bouchehboun/DiscoverWorld"
+              target="_blank"
+            >
+                <span class="text-white text-sm font-medium">Full Stack</span>
+              </a>
+               
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-3 uppercase">Discover World</h3>
+              <p class="text-gray-300 mb-4">
+               une plateforme vise à réunir une communauté passionnée par la découverte du monde à travers des récits de voyage, offrant un espace où les aventures peuvent être partagées et célébrées.
               </p>
+
+              <!-- Technologies -->
+              <div class="mb-6">
+                <p class="text-sm font-medium text-gray-300 mb-2">
+                  Technologies utilisées:
+                </p>
+                <div class="flex flex-wrap gap-4 items-center">
+                  <!-- HTML -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
+                        alt="HTML5"
+                        class="w-7 h-7"
+                        title="HTML5"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- CSS -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
+                        alt="CSS3"
+                        class="w-7 h-7"
+                        title="CSS3"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- JavaScript -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+                        alt="JavaScript"
+                        class="w-7 h-7"
+                        title="JavaScript"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Laravel -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="laravel-logo.png"
+                        alt="Laravel"
+                        class="w-7 h-7"
+                        title="Laravel"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Livewire -->
+                
+
+                  <!-- MySQL -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
+                        alt="MySQL"
+                        class="w-7 h-7"
+                        title="MySQL"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-card bg-white/20 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-900" data-category="fullstack">
+            <div class="relative">
+              <div
+                class="absolute inset-0 border-4 border-blue-500/20 rounded-t-xl"
+              ></div>
+              <img
+                src="wiki.png"
+                alt="Wiki™"
+                class="w-full h-56 object-cover"
+              />
+              <div
+                class="absolute top-4 right-4 bg-blue-500/90 px-3 py-1 rounded-full flex items-center gap-2 "
+              >
+              <div>
+           
+                <svg
+                  class="w-3 h-3 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </div>
+              <a
+              href="https://github.com/anwar-bouchehboun/wiki_Youcode"
+              target="_blank"
+            >
+                <span class="text-white text-sm font-medium">Full Stack</span>
+              </a>
+               
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-3">Wiki™</h3>
+              <p class="text-gray-300 mb-4">
+                Wiki™ a besoin d'un gestionnaire de contenu et d'un front office, pour faciliter la gestion des wikis sur la plateforme.
+              </p>
+
+              <!-- Technologies -->
+              <div class="mb-6">
+                <p class="text-sm font-medium text-gray-300 mb-2">
+                  Technologies utilisées:
+                </p>
+                <div class="flex flex-wrap gap-4 items-center">
+                  <!-- HTML -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
+                        alt="HTML5"
+                        class="w-7 h-7"
+                        title="HTML5"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- CSS -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
+                        alt="CSS3"
+                        class="w-7 h-7"
+                        title="CSS3"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- JavaScript -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+                        alt="JavaScript"
+                        class="w-7 h-7"
+                        title="JavaScript"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Laravel -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg"
+                        alt="PHP"
+                        class="w-7 h-7"
+                        title="PHP"
+                      />
+                    </div>
+                  </div>
+
+            
+
+                  <!-- MySQL -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
+                        alt="MySQL"
+                        class="w-7 h-7"
+                        title="MySQL"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card bg-white/20 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-900" data-category="fullstack">
+            <div class="relative">
+              <div
+                class="absolute inset-0 border-4 border-blue-500/20 rounded-t-xl"
+              ></div>
+              <img
+                src="medconnect.png"
+                alt="MEDICONNECT
+"
+                class="w-full h-56 object-cover"
+              />
+              <div
+                class="absolute top-4 right-4 bg-blue-500/90 px-3 py-1 rounded-full flex items-center gap-2 "
+              >
+              <div>
+           
+                <svg
+                  class="w-3 h-3 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </div>
+              <a
+              href="https://github.com/anwar-bouchehboun/MEDICONNECT_Youcode"
+              target="_blank"
+            >
+                <span class="text-white text-sm font-medium">Full Stack</span>
+              </a>
+               
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-3 uppercase">MEDICONNECT
+              </h3>
+              <p class="text-gray-300 mb-4">
+                La mission consiste à concevoir une plateforme de gestion clinique innovante, offrant une expérience fluide tant pour les patients que pour les médecins.              </p>
+
+              <!-- Technologies -->
+              <div class="mb-6">
+                <p class="text-sm font-medium text-gray-300 mb-2">
+                  Technologies utilisées:
+                </p>
+                <div class="flex flex-wrap gap-4 items-center">
+                  <!-- HTML -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
+                        alt="HTML5"
+                        class="w-7 h-7"
+                        title="HTML5"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- CSS -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
+                        alt="CSS3"
+                        class="w-7 h-7"
+                        title="CSS3"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- JavaScript -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+                        alt="JavaScript"
+                        class="w-7 h-7"
+                        title="JavaScript"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Laravel -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg"
+                        alt="PHP"
+                        class="w-7 h-7"
+                        title="PHP"
+                      />
+                    </div>
+                  </div>
+
+            
+
+                  <!-- MySQL -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
+                        alt="MySQL"
+                        class="w-7 h-7"
+                        title="MySQL"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Projet 2 : Gestion des Ressources -->
+          <div class="project-card bg-white/20 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-900" data-category="backend">
+            <div class="relative">
+              <div
+                class="absolute inset-0 border-4 border-blue-500/20 rounded-t-xl"
+              ></div>
+              <img
+                src="ressource.png"
+                alt="Gestion des Ressources"
+                class="w-full h-56 object-cover"
+              />
+              <div
+                class="absolute top-4 right-4 bg-blue-500/90 px-3 py-1 rounded-full"
+              >
+                <span class="text-white text-sm font-medium">Backend</span>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-3">
+                Gestion des Ressources
+              </h3>
+              <p class="text-gray-300 mb-4">
+                Application de gestion des ressources humaines avec suivi des
+                congés et des performances.
+              </p>
+
+              <!-- Technologies -->
+              <div class="mb-6">
+                <p class="text-sm font-medium text-gray-400 mb-2">
+                  Technologies utilisées:
+                </p>
+                <div class="flex gap-6 items-center">
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"
+                        alt="Java"
+                        class="w-8 h-8"
+                        title="Java"
+                      />
+                    </div>
+                  </div>
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg"
+                        alt="Spring"
+                        class="w-8 h-8"
+                        title="Spring"
+                      />
+                    </div>
+                  </div>
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
+                        alt="PostgreSQL"
+                        class="w-8 h-8"
+                        title="PostgreSQL"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div class="flex justify-between items-center">
+                <a href="#" class="inline-flex items-center"> </a>
+
                 <a
-                  href="#"
-                  class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300"
-                >
-                  <span>Voir le projet</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/anwar-bouchehboun/gestion_Club_FilRouge"
+                  href="https://github.com/anwar-bouchehboun"
                   target="_blank"
-                  class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors duration-300"
+                  class="p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors"
                 >
                   <svg
-                    class="w-6 h-6 text-gray-700"
+                    class="w-6 h-6 text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -913,184 +1720,113 @@
             </div>
           </div>
 
-          <!-- Projet 2 -->
-          <!-- Projet 1 -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-2xl"
-          >
-            <div class="relative h-56 overflow-hidden">
+          <!-- Projet 3 : E-commerce Platform -->
+          <div class="project-card bg-white/20 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-900" data-category="frontend">
+          
+            <div class="relative">
+              <div
+                class="absolute inset-0 border-4 border-blue-500/20 rounded-t-xl"
+              ></div>
               <img
-                src="club.png"
-                alt="CLUB PHOENIX"
-                class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                src="easycar.png"
+                alt="EasyCar"
+                class="w-full h-56 object-cover"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"
+              class="absolute top-4 right-4 bg-blue-500/90 px-3 py-1 rounded-full flex items-center gap-2 "
+            >
+            <div>
+         
+              <svg
+                class="w-3 h-3 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
               >
-                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <p class="font-medium mb-2">Technologies utilisées:</p>
-                  <div class="flex gap-3">
-                    <img
-                      src="laravel-logo.png"
-                      alt="Laravel"
-                      class="w-8 h-8 bg-white rounded-full p-1"
-                      title="Laravel"
-                    />
-                    <img
-                      src="Livewire.png"
-                      alt="Livewire"
-                      class="w-8 h-8 bg-white rounded-full p-1"
-                      title="Livewire"
-                    />
-                    <img
-                      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
-                      alt="MySQL"
-                      class="w-8 h-8 bg-white rounded-full p-1"
-                      title="MySQL"
-                    />
-                  </div>
-                </div>
-              </div>
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
             </div>
-            <div class="p-6 bg-white">
-              <h3 class="font-bold text-xl mb-2 text-gray-800">CLUB PHOENIX</h3>
-              <p class="text-gray-600 mb-4">
-                Application de gestion de club sportif permettant la gestion des
-                membres, des activités et des événements.
-              </p>
-              <div class="flex justify-between items-center">
-                <a
-                  href="#"
-                  class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300"
-                >
-                  <span>Voir le projet</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/anwar-bouchehboun/gestion_Club_FilRouge"
-                  target="_blank"
-                  class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors duration-300"
-                >
-                  <svg
-                    class="w-6 h-6 text-gray-700"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- Projet 1 -->
-          <div
-            class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-2xl"
+            <a
+            href="https://github.com/anwar-bouchehboun/MEDICONNECT_Youcode"
+            target="_blank"
           >
-            <div class="relative h-56 overflow-hidden">
-              <img
-                src="club.png"
-                alt="CLUB PHOENIX"
-                class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"
-              >
-                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <p class="font-medium mb-2">Technologies utilisées:</p>
-                  <div class="flex gap-3">
-                    <img
-                      src="laravel-logo.png"
-                      alt="Laravel"
-                      class="w-8 h-8 bg-white rounded-full p-1"
-                      title="Laravel"
-                    />
-                    <img
-                      src="Livewire.png"
-                      alt="Livewire"
-                      class="w-8 h-8 bg-white rounded-full p-1"
-                      title="Livewire"
-                    />
-                    <img
-                      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
-                      alt="MySQL"
-                      class="w-8 h-8 bg-white rounded-full p-1"
-                      title="MySQL"
-                    />
-                  </div>
-                </div>
-              </div>
+              <span class="text-white text-sm font-medium">Frontend</span>
+            </a>
+             
             </div>
-            <div class="p-6 bg-white">
-              <h3 class="font-bold text-xl mb-2 text-gray-800">CLUB PHOENIX</h3>
-              <p class="text-gray-600 mb-4">
-                Application de gestion de club sportif permettant la gestion des
-                membres, des activités et des événements.
-              </p>
-              <div class="flex justify-between items-center">
-                <a
-                  href="#"
-                  class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300"
-                >
-                  <span>Voir le projet</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/anwar-bouchehboun/gestion_Club_FilRouge"
-                  target="_blank"
-                  class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors duration-300"
-                >
-                  <svg
-                    class="w-6 h-6 text-gray-700"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                    />
-                  </svg>
-                </a>
-              </div>
             </div>
-          </div>
 
-          <!-- Ajoutez d'autres projets en copiant et adaptant la structure ci-dessus -->
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-3 uppercase">
+                EasyCar              </h3>
+              <p class="text-gray-300 mb-4">
+                L'agence de location de voitures "EasyCar" souhaite mettre en place un site web moderne et intuitif pour offrir à ses clients une expérience de réservation fluide et informatique.
+              </p>
+
+              <!-- Technologies -->
+              <div class="mb-6">
+                <p class="text-sm font-medium text-gray-400 mb-2">
+                  Technologies utilisées:
+                </p>
+                <div class="flex gap-6 items-center">
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
+                        alt="HTML5"
+                        class="w-7 h-7"
+                        title="HTML5"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- CSS -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
+                        alt="CSS3"
+                        class="w-7 h-7"
+                        title="CSS3"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- JavaScript -->
+                  <div class="group relative">
+                    <div
+                    class="bg-white p-2 rounded-lg hover:bg-gray-400 transition-all duration-300"
+                    >
+                      <img
+                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+                        alt="JavaScript"
+                        class="w-7 h-7"
+                        title="JavaScript"
+                      />
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Section Contact -->
-    <section id="contact" class="py-12">
+    <section id="experience" class="py-12">
       <div class="max-w-4xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
-          Contact
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8 uppercase">
+          experience
+          <div class="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
         </h2>
         <div class="bg-white rounded-lg shadow-lg p-8">
           <div class="flex flex-col space-y-4">
@@ -1126,5 +1862,74 @@
         <p>&copy; 2024 Anwar Bouchehboun. Tous droits réservés.</p>
       </div>
     </footer>
+
+    <!-- Script pour le filtrage -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
+
+        // Fonction de filtrage
+        function filterProjects(category) {
+          projectCards.forEach((card) => {
+            if (category === "all" || card.dataset.category === category) {
+              card.style.display = "block";
+              // Animation d'apparition
+              card.style.opacity = "0";
+              card.style.transform = "translateY(20px)";
+              setTimeout(() => {
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0)";
+              }, 100);
+            } else {
+              card.style.display = "none";
+            }
+          });
+        }
+
+        // Gestionnaire d'événements pour les boutons de filtre
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            // Mise à jour de la classe active
+            filterBtns.forEach((b) =>
+              b.classList.remove("active", "bg-blue-500")
+            );
+            btn.classList.add("active", "bg-blue-500");
+
+            // Filtrage des projets
+            filterProjects(btn.dataset.filter);
+          });
+        });
+      });
+    </script>
+
+    <!-- Styles pour l'animation des cartes -->
+    <style>
+      .project-card {
+        transition: all 0.4s ease-in-out;
+      }
+
+      /* Style pour le bouton actif */
+      .filter-btn.active {
+        background-color: rgb(59, 130, 246);
+        font-weight: 500;
+      }
+
+      /* Animation d'apparition des cartes */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .project-card {
+        animation: fadeInUp 0.5s ease-out;
+      }
+    </style>
   </body>
 </html>
